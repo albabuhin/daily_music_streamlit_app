@@ -1,7 +1,7 @@
 import re
 import base64
 import hashlib
-import st
+import streamlit as st
 
 
 email_regex = re.compile(
