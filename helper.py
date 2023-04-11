@@ -1,6 +1,7 @@
 import re
 import base64
 import hashlib
+import st
 
 
 email_regex = re.compile(
@@ -27,3 +28,11 @@ def hash_email(email:str) -> str:
     hashed_email = hashlib.sha256(encoded_email).hexdigest()
     return hashed_email
 
+
+def testing_creating_containers():
+    col1, col2 = st.columns(2)
+    col1.header("Original")
+    col1.write('anything can be original if one has not seen anything like it before'
+
+    col2.header("Grayscale")
+    col2.search("blabla")
