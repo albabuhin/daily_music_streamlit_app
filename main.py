@@ -12,6 +12,9 @@ if search_title:
     all_track_data = all_track_data.loc[all_track_data.index.str.contains(
         search_title, case=False)]
 
+    
+print(all_track_data[:5])
+
 dropdown_value = sl.selectbox(
     'Search by artist name', all_track_data['Artist'].unique())
 
