@@ -13,7 +13,7 @@ if search_title:
         search_title, case=False)]
 
     
-st.write(all_track_data.head(5).to_string())
+sl.write(all_track_data.head(5).to_string())
 
 dropdown_value = sl.selectbox(
     'Search by artist name', all_track_data['Artist'].unique())
