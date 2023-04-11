@@ -5,7 +5,7 @@ import pandas as pd
 sl.header('Schema Music')
 
 # Interactive table based on Snowflake
-all_track_data = snowflake_functions.get_all_track_data(**sl.secrets["snowflake"])
+all_track_data = snowflake_functions.get_all_track_data(sl.secrets["snowflake"])
 all_track_data.set_index('Song Title', inplace=True)
 search_title = sl.text_input('Search by track name')
 if search_title:
@@ -38,4 +38,4 @@ sl.write('If you want to get weekly updates of #daily-music and get to know a bu
 email = sl.text_input('', value='example@example.com')
 if sl.button('Subscribe'):
     sl.write(snowflake_functions.add_email_to_mailing_list(
-        email, **sl.secrets["snowflake"]))
+        email, sl.secrets["snowflake"]))
