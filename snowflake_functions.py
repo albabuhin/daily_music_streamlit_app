@@ -5,7 +5,7 @@ import pandas as pd
 
 def add_email_to_mailing_list(email: str, secrets):
     if helper.email_is_valid(email) and email != 'example@example.com':
-        with snowflake.connector.connect(secrets) as con:
+        with snowflake.connector.connect(**secrets) as con:
             hashed_email = helper.hash_email(email)
             with con.cursor() as cur:
                 cur.execute(
@@ -26,7 +26,7 @@ def get_all_track_data(secrets) -> pd.DataFrame:
                                         ST.POPULARITY as Popularity FROM SPOTIFY_TRACK ST
                         LEFT JOIN ARTIST A ON A.ID = ST.ARTIST_ID;'''
     query_result = None
-    with snowflake.connector.connect(secrets) as con:
+    with snowflake.connector.connect(**secrets) as con:
         query_result = pd.read_sql(select_query, con)
 
     return query_result if query_result is not None else pd.DataFrame()
