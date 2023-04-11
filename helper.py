@@ -35,4 +35,4 @@ def testing_creating_containers():
     col1.write('anything can be original if one has not seen anything like it before')
 
     col2.header("Grayscale")
-    col2.search("blabla")
+    col2.write("blabla")
